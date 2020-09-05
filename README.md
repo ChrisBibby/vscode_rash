@@ -5,4 +5,4 @@ This VSCode extension provides the ability to calculate SHA256 and MD5 hashes fo
 The extension does not support the calculating of hashes for folders or multiple files.
 
 **Notes**
-Hashing of text is not yet implemented.
+The hashing of text selection is not yet implemented.
