@@ -2,9 +2,10 @@ name: Rash
 on:
   pull_request:
     branches:
-      - master
+      - new-feature
 jobs:
   build:
+    name: Build, Test & Publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
