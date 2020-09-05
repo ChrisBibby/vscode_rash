@@ -1,7 +1,7 @@
 name: Rash
 on:
-  push:
-    branches-ignore:
+  pull_request:
+    branches:
       - master
 jobs:
   build:
@@ -27,3 +27,11 @@ jobs:
         #      - run: npm run test
         env:
           CI: true
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          npm run deploy
+          git commit -am "version bump on publish"
+          git push
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
