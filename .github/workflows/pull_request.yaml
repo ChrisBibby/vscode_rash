@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
         if: github.event.pull_request.merged
         with:
-          ref: refs/head/master
+          ref: refs/heads/master
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
