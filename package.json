@@ -2,7 +2,7 @@
   "name": "rash",
   "displayName": "rash",
   "description": "Calculate cryptographic hash values for files and text",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "publisher": "chrisbibby",
   "author": {
     "name": "Chris Bibby"
@@ -56,7 +56,8 @@
     "pretest": "npm run compile && npm run lint",
     "test": "node ./out/test/runTest.js",
     "package": "vsce package",
-    "deploy": "vsce publish"
+    "deploy": "vsce publish",
+    "release": "npm version patch -m \"automated version bump - %s\" -f"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",
