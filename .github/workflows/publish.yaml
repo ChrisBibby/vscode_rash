@@ -1,8 +1,7 @@
 name: Rash
 on:
-  pull_request:
-    branches:
-      - master
+  release:
+    created:
 jobs:
   build:
     name: Build, Test & Publish
@@ -31,7 +30,8 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          # npm version patch -m "automated version bump - %s" -f
-          npm run deploy
+          npm version patch -m "automated version bump - %s" -f
+          git push
+          # npm run deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
