@@ -56,8 +56,7 @@
     "pretest": "npm run compile && npm run lint",
     "test": "node ./out/test/runTest.js",
     "package": "vsce package",
-    "deploy": "vsce publish",
-    "release": "npm version patch -m \"automated version bump - %s\" -f"
+    "deploy": "vsce publish"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",
