@@ -32,7 +32,6 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           npm version patch -m "automated version bump - %s" -f
-          git branch --set-upstream-to=origin/master
           git status
           npm run deploy
         env:
