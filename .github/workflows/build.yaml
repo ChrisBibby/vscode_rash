@@ -24,6 +24,6 @@ jobs:
         #      - run: npm run test
         env:
           CI: true
-      - run: npm run publish
+      - run: npm run deploy
         env:
           VSCE_PATH: ${{ secrets.VSCE_PAT }}
