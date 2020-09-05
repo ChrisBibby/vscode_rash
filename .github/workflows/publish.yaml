@@ -31,8 +31,8 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          npm run deploy
-          git commit -am "version bump on publish"
+          npm version patch -m "automated version bump - %s" -f
           git push
+          npm run deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
