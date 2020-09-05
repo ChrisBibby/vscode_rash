@@ -2,7 +2,7 @@
   "name": "rash",
   "displayName": "rash",
   "description": "Calculate cryptographic hash values for files and text",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "chrisbibby",
   "author": {
     "name": "Chris Bibby"
