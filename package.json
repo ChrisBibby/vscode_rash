@@ -2,6 +2,11 @@
   "name": "rash",
   "displayName": "rash",
   "description": "Calculate cryptographic hash values for files and text",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
   "version": "0.0.31",
   "publisher": "chrisbibby",
   "author": {
@@ -20,21 +25,52 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:rash.sha256"
+    "onCommand:rash.md5",
+    "onCommand:rash.sha256",
+    "onCommand:rash.md5-text",
+    "onCommand:rash.sha256-text"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "rash.md5",
-        "title": "Copy MD5 to Clipboard"
+        "title": "Copy MD5 to Clipboard for selected file",
+        "enablement": "explorerResourceIsFolder == false"
       },
       {
         "command": "rash.sha256",
-        "title": "Copy Sha256 to Clipboard"
+        "title": "Copy Sha256 to Clipboard for selected file",
+        "enablement": "explorerResourceIsFolder == false"
+      },
+      {
+        "command": "rash.md5-text",
+        "title": "Copy MD5 to Clipboard for selected text"
+      },
+      {
+        "command": "rash.sha256-text",
+        "title": "Copy Sha256 to Clipboard for selected text"
       }
     ],
     "menus": {
+      "commandPalette": [
+        {
+          "command": "rash.md5",
+          "when": "false"
+        },
+        {
+          "command": "rash.sha256",
+          "when": "false"
+        },
+        {
+          "command": "rash.md5-text",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "rash.sha256-text",
+          "when": "editorHasSelection"
+        }
+      ],
       "explorer/context": [
         {
           "command": "rash.md5",
@@ -55,6 +91,7 @@
     "lint": "eslint src --ext ts",
     "pretest": "npm run compile && npm run lint",
     "test": "node ./out/test/runTest.js",
+    "watch": "tsc -watch -p ./",
     "package": "vsce package",
     "deploy": "vsce publish"
   },

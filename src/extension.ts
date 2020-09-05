@@ -28,13 +28,43 @@ export function activate(context: vscode.ExtensionContext) {
     });
   });
 
+  let commandMd5Text = vscode.commands.registerCommand('rash.md5-text', async () => {
+    return calculateHashForText('MD5');
+  });
+
+  let commandSha256Text = vscode.commands.registerCommand('rash.sha256-text', async () => {
+    return calculateHashForText('Sha256');
+  });
+
   context.subscriptions.push(commandMd5);
   context.subscriptions.push(commandSha256);
+  context.subscriptions.push(commandMd5Text);
+  context.subscriptions.push(commandSha256Text);
 }
 
 async function calculateHash(filePath: vscode.Uri, hashType: string): Promise<string | null> {
   return await hasha.fromFile(filePath.fsPath, {
     algorithm: hashType,
+  });
+}
+
+async function calculateHashForText(hashType: string): Promise<void> {
+  const editor = vscode.window.activeTextEditor;
+
+  if (!editor) {
+    return;
+  }
+
+  const text = editor.document.getText(editor.selection);
+  const hashValue = await hasha.async(text, { algorithm: hashType });
+
+  if (!hashValue) {
+    vscode.window.showErrorMessage(`Unable to calculate ${hashType} for text selection.`);
+    return;
+  }
+
+  await vscode.env.clipboard.writeText(hashValue).then(() => {
+    vscode.window.showInformationMessage(`${hashType} copied to clipboard`);
   });
 }
 
