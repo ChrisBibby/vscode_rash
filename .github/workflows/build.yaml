@@ -24,6 +24,9 @@ jobs:
         #      - run: npm run test
         env:
           CI: true
-      - run: npm run deploy
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          npm run deploy
         env:
           VSCE_PATH: ${{ secrets.VSCE_PAT }}
