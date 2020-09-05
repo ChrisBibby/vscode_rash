@@ -4,10 +4,14 @@
   "description": "Calculate cryptographic hash values for files and text",
   "version": "0.0.3",
   "publisher": "chrisbibby",
+  "author": {
+    "name": "Chris Bibby"
+  },
   "repository": {
     "type": "git",
     "uri": "https://github.com/ChrisBibby/vscode_rash"
   },
+  "homepage": "https://github.com/ChrisBibby/vscode_rash",
   "engines": {
     "vscode": "^1.48.0"
   },
