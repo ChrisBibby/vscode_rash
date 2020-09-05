@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    await vscode.env.clipboard.writeText(hashValue).then((text) => {
+    await vscode.env.clipboard.writeText(hashValue).then(() => {
       vscode.window.showInformationMessage(`MD5 copied to clipboard`);
     });
   });
@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    await vscode.env.clipboard.writeText(hashValue).then((text) => {
+    await vscode.env.clipboard.writeText(hashValue).then(() => {
       vscode.window.showInformationMessage(`Sha256 copied to clipboard`);
     });
   });
