@@ -33,7 +33,7 @@ jobs:
           git config user.email github-actions@github.com
           npm version patch -m "automated version bump - %s" -f
           git branch --set-upstream-to=origin/master
-          git push origin master
+          git status
           npm run deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
