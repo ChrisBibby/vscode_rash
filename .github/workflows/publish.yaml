@@ -2,7 +2,7 @@ name: Rash
 on:
   pull_request:
     branches:
-      - new-feature
+      - master
 jobs:
   build:
     name: Build, Test & Publish
