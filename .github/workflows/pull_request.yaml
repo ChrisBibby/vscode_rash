@@ -28,7 +28,6 @@ jobs:
       - run: npm run compile --if-present
         env:
           CI: true
-      - name: Set Version and Publish
       - run: |
           git config user.name $GITHUB_ACTOR
           git config user.email github-actions-${GITHUB_ACTOR}@github.com
