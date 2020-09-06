@@ -14,10 +14,11 @@
   },
   "repository": {
     "type": "git",
-    "uri": "https://github.com/ChrisBibby/vscode_rash"
+    "url": "https://github.com/ChrisBibby/vscode_rash.git"
   },
   "homepage": "https://github.com/ChrisBibby/vscode_rash",
   "bugs": "https://github.com/ChrisBibby/vscode_rash/issues",
+  "license": "SEE LICENSE IN LICENSE.md",
   "engines": {
     "vscode": "^1.48.0"
   },
